@@ -1,5 +1,12 @@
-# ea-infrastructure
-Infrastructure as code definition for k3s cluster in edge-autoscaler project
+
+# NEPTUNE Infrastructure
+<p align="center">
+  <img width="100%" src="https://i.imgur.com/tm9mSuM.png" alt="Politecnico di Milano" />
+</p>
+
+## Overview
+
+NEPTUNE-infrastructure is an infrastructure as code definition for k3s cluster in edge-autoscaler project. It uses Terraform to create multi-region and multi-availability zones AWS clusters with networking delays similar to an edge computing cluster.
 
 # Getting started
 - `terraform init`
