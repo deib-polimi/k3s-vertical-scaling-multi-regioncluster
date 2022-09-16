@@ -4,7 +4,7 @@ module "master_region" {
   region = "us-east-2"
 
   master               = true
-  master_instance_type = "c5.4xlarge"
+  master_instance_type = "c5.xlarge"
   worker_instance_type = "c5.xlarge"
   cpu_instances        = 1
   gpu_instances        = 0

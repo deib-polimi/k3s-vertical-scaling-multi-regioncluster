@@ -265,12 +265,17 @@ resource "null_resource" "master_init" {
       "sudo apt update",
       "sudo apt upgrade -y",
       "sudo apt install -y docker.io",
-      "sudo apt install -y linuxbrew-wrapper",
+      "sudo apt install -y wget",
+      "sudo apt install -y tar",
       "sudo systemctl start docker",
       "sudo systemctl enable docker",
       "sudo cp -r ./k3s /usr/local/bin/",
       "sudo snap install helm --classic",
       "sudo snap install go --classic",
+      "wget https://github.com/derailed/k9s/releases/download/v0.26.3/k9s_Linux_x86_64.tar.gz",
+      "tar -xvf k9s_Linux_x86_64.tar.gz",
+      "chmod +x k9s",
+      "sudo mv k9s /usr/bin",
     ]
   }
   provisioner "remote-exec" {
@@ -279,6 +284,7 @@ resource "null_resource" "master_init" {
       # "curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE=666 INSTALL_K3S_EXEC='server --token=${random_password.k3s[0].result} --node-external-ip=${module.master[0].public_ip} --node-name=${module.master[0].node_name} --docker --cluster-init --write-kubeconfig-mode  777 --kube-apiserver-arg=feature-gates=ServiceTopology=true' sh -",
     ]
   }
+  
   provisioner "remote-exec" {
     inline = [
       "mkdir /home/ubuntu/.kube",
