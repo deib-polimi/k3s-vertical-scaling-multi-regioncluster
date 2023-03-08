@@ -21,9 +21,6 @@ NEPTUNE-infrastructure is an infrastructure as code definition for k3s cluster i
 ```
 - apply the plan
 ```
-terraform apply "plan" \  
-    -var 'AWS_CREDENTIALS_FILEPATH=<value>' \  
-    -var 'SSH_PUBLIC_KEYPATH=<value>' \  
-    -var 'SSH_PRIVATE_KEYPATH=<value>'
+terraform apply plan
 ```
 - Enjoy your k3s cluster
